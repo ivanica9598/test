@@ -6,5 +6,8 @@ import datetime
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, RTCConfiguration
 
-webrtc_streamer(key="key")
+class VideoProcessor:
+	def recv(self, frame):
+		return frame
 
+webrtc_streamer(key="key", video_processor_factory=VideoProcessor)
